@@ -1,0 +1,419 @@
+﻿<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║              🎉  PARTY INVITATION — SOURCE CODE  🎉         ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  Coded by  : Lucky                                           ║
+  ║  Version   : 2.0 (Enhanced)                                  ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  PARTY CONTEXT (for devs only — not shown on page)           ║
+  ║                                                              ║
+  ║  🎂 This is Lucky's Birthday Party!                         ║
+  ║                                                              ║
+  ║                     
+  ║  This party is being hosted as a celebration gift by:        ║
+  ║    → Krisha   (HOD at Inferno 26) 
+  ║    → Lucky    (HOD — Inferno 26)                             ║
+  ║    → Dishank  (HOD at Inferno 26)                            ║
+  ║    → Devansh  (HOD at Inferno 26)                            ║
+  ║                                                              ║
+  ║  Friends from the same HOD squad giving Lucky                ║
+  ║  a birthday bash — what a crew! 🔥                          ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ====================================================
+       META — Charset & Viewport
+       ==================================================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ====================================================
+       SEO — Primary Meta Tags
+       ==================================================== -->
+  <title>Party Invitation — 11th May 2026 | Mad Over Grills, Surat</title>
+  <meta name="title" content="Party Invitation — 11th May 2026 | Mad Over Grills, Surat" />
+  <meta name="description"
+    content="You are cordially invited to an exclusive gathering on 11th May 2026 at Mad Over Grills, Adajan, Surat. Join us for an unforgettable evening starting at ~6:00 PM." />
+  <meta name="keywords" content="party invitation, 11 may 2026, Mad Over Grills, Surat, Adajan, celebration, event" />
+  <meta name="author" content="Lucky" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0e1f18" />
+
+  <!-- ====================================================
+       SEO — Open Graph / Facebook
+       ==================================================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="You're Invited! Party — 11th May 2026" />
+  <meta property="og:description"
+    content="Join us for an unforgettable evening at Mad Over Grills, Adajan, Surat on 11th May 2026 at ~6:00 PM." />
+  <meta property="og:image" content="https://og-image.vercel.app/Party%20Invitation.png" />
+  <meta property="og:url" content="https://invite.luckyverse.tech/inferno26-party/" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- ====================================================
+       SEO — Twitter Card
+       ==================================================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="You're Invited! Party — 11th May 2026" />
+  <meta name="twitter:description" content="Join us for an unforgettable evening at Mad Over Grills, Adajan, Surat." />
+  <meta name="twitter:image" content="https://og-image.vercel.app/Party%20Invitation.png" />
+
+  <!-- ====================================================
+       CANONICAL
+       ==================================================== -->
+  <link rel="canonical" href="https://invite.luckyverse.tech/inferno26-party/" />
+
+  <!-- ====================================================
+       ICONS & PWA
+       ==================================================== -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E🎉%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E🎉%3C/text%3E%3C/svg%3E" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Party Invite" />
+
+  <!-- ====================================================
+       STRUCTURED DATA (JSON-LD)
+       ==================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SocialEvent",
+    "name": "Party Invitation — 11th May 2026",
+    "description": "An exclusive gathering at Mad Over Grills, Adajan, Surat.",
+    "startDate": "2026-05-11T18:00:00+05:30",
+    "location": {
+      "@type": "Place",
+      "name": "Mad Over Grills",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Green City Road, Opp Bharti Royal Residency, Near Indian Petrol Pump, Galaxy Circle",
+        "addressLocality": "Adajan",
+        "addressRegion": "Gujarat",
+        "postalCode": "394510",
+        "addressCountry": "IN"
+      }
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Lucky"
+    }
+  }
+  </script>
+
+  <!-- ====================================================
+       FONTS
+       ==================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- ====================================================
+       STYLESHEET
+       ==================================================== -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Confetti canvas (rendered by JS) -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- ======================================================
+     MAIN CARD
+     ====================================================== -->
+  <main id="main-content">
+    <div class="card" role="article" aria-label="Party Invitation">
+
+      <div class="arch-frame">
+        <div class="shimmer" aria-hidden="true"></div>
+
+        <!-- Floral — Top Left -->
+        <div class="floral floral-tl" aria-hidden="true">
+          <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Decorative floral element">
+            <ellipse cx="30" cy="70" rx="22" ry="9" fill="#2a5c3f" transform="rotate(-30 30 70)" />
+            <ellipse cx="60" cy="100" rx="20" ry="8" fill="#1e4a30" transform="rotate(20 60 100)" />
+            <ellipse cx="15" cy="45" rx="18" ry="7" fill="#2d6644" transform="rotate(-50 15 45)" />
+            <ellipse cx="80" cy="60" rx="16" ry="6" fill="#245238" transform="rotate(10 80 60)" />
+            <g transform="translate(50,45)">
+              <circle cx="0" cy="-14" r="9" fill="#f0ede6" />
+              <circle cx="10" cy="-9" r="9" fill="#f0ede6" />
+              <circle cx="13" cy="1" r="9" fill="#f0ede6" />
+              <circle cx="5" cy="10" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="8" r="9" fill="#f0ede6" />
+              <circle cx="-12" cy="-2" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="-12" r="9" fill="#f0ede6" />
+              <circle cx="0" cy="0" r="7" fill="#f5dfa0" />
+            </g>
+            <g transform="translate(22,55) scale(.7)">
+              <circle cx="0" cy="-14" r="9" fill="#e8e5de" />
+              <circle cx="10" cy="-9" r="9" fill="#e8e5de" />
+              <circle cx="13" cy="1" r="9" fill="#e8e5de" />
+              <circle cx="5" cy="10" r="9" fill="#e8e5de" />
+              <circle cx="-7" cy="8" r="9" fill="#e8e5de" />
+              <circle cx="-12" cy="-2" r="9" fill="#e8e5de" />
+              <circle cx="-7" cy="-12" r="9" fill="#e8e5de" />
+              <circle cx="0" cy="0" r="7" fill="#e8c97a" />
+            </g>
+            <g transform="translate(78,38) scale(.55)">
+              <circle cx="0" cy="-14" r="9" fill="#e8853a" />
+              <circle cx="10" cy="-9" r="9" fill="#e8853a" />
+              <circle cx="13" cy="1" r="9" fill="#e8853a" />
+              <circle cx="5" cy="10" r="9" fill="#d4702a" />
+              <circle cx="-7" cy="8" r="9" fill="#d4702a" />
+              <circle cx="-12" cy="-2" r="9" fill="#e8853a" />
+              <circle cx="-7" cy="-12" r="9" fill="#e8853a" />
+              <circle cx="0" cy="0" r="7" fill="#f5dfa0" />
+            </g>
+            <g transform="translate(35,88) scale(.4)">
+              <circle cx="0" cy="-12" r="7" fill="#fff" />
+              <circle cx="8" cy="-8" r="7" fill="#fff" />
+              <circle cx="10" cy="1" r="7" fill="#fff" />
+              <circle cx="3" cy="9" r="7" fill="#fff" />
+              <circle cx="-6" cy="7" r="7" fill="#fff" />
+              <circle cx="-10" cy="-2" r="7" fill="#fff" />
+              <circle cx="0" cy="0" r="5" fill="#f5c842" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Floral — Top Right -->
+        <div class="floral floral-tr" aria-hidden="true">
+          <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Decorative floral element">
+            <ellipse cx="30" cy="70" rx="22" ry="9" fill="#2a5c3f" transform="rotate(-30 30 70)" />
+            <ellipse cx="60" cy="100" rx="20" ry="8" fill="#1e4a30" transform="rotate(20 60 100)" />
+            <ellipse cx="15" cy="45" rx="18" ry="7" fill="#2d6644" transform="rotate(-50 15 45)" />
+            <ellipse cx="80" cy="60" rx="16" ry="6" fill="#245238" transform="rotate(10 80 60)" />
+            <g transform="translate(50,45)">
+              <circle cx="0" cy="-14" r="9" fill="#f0ede6" />
+              <circle cx="10" cy="-9" r="9" fill="#f0ede6" />
+              <circle cx="13" cy="1" r="9" fill="#f0ede6" />
+              <circle cx="5" cy="10" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="8" r="9" fill="#f0ede6" />
+              <circle cx="-12" cy="-2" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="-12" r="9" fill="#f0ede6" />
+              <circle cx="0" cy="0" r="7" fill="#f5dfa0" />
+            </g>
+            <g transform="translate(22,55) scale(.7)">
+              <circle cx="0" cy="-14" r="9" fill="#e8e5de" />
+              <circle cx="10" cy="-9" r="9" fill="#e8e5de" />
+              <circle cx="13" cy="1" r="9" fill="#e8e5de" />
+              <circle cx="5" cy="10" r="9" fill="#e8e5de" />
+              <circle cx="-7" cy="8" r="9" fill="#e8e5de" />
+              <circle cx="-12" cy="-2" r="9" fill="#e8e5de" />
+              <circle cx="-7" cy="-12" r="9" fill="#e8e5de" />
+              <circle cx="0" cy="0" r="7" fill="#e8c97a" />
+            </g>
+            <g transform="translate(78,38) scale(.55)">
+              <circle cx="0" cy="-14" r="9" fill="#e8853a" />
+              <circle cx="10" cy="-9" r="9" fill="#e8853a" />
+              <circle cx="13" cy="1" r="9" fill="#e8853a" />
+              <circle cx="5" cy="10" r="9" fill="#d4702a" />
+              <circle cx="-7" cy="8" r="9" fill="#d4702a" />
+              <circle cx="-12" cy="-2" r="9" fill="#e8853a" />
+              <circle cx="-7" cy="-12" r="9" fill="#e8853a" />
+              <circle cx="0" cy="0" r="7" fill="#f5dfa0" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Floral — Bottom Left -->
+        <div class="floral floral-bl" aria-hidden="true">
+          <svg width="110" height="100" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Decorative floral element">
+            <ellipse cx="55" cy="30" rx="24" ry="8" fill="#2d6644" transform="rotate(20 55 30)" />
+            <ellipse cx="25" cy="50" rx="20" ry="7" fill="#1e4a30" transform="rotate(-15 25 50)" />
+            <g transform="translate(30,55)">
+              <circle cx="0" cy="-14" r="9" fill="#f0ede6" />
+              <circle cx="10" cy="-9" r="9" fill="#f0ede6" />
+              <circle cx="13" cy="1" r="9" fill="#f0ede6" />
+              <circle cx="5" cy="10" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="8" r="9" fill="#f0ede6" />
+              <circle cx="-12" cy="-2" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="-12" r="9" fill="#f0ede6" />
+              <circle cx="0" cy="0" r="7" fill="#f5dfa0" />
+            </g>
+            <g transform="translate(70,45) scale(.6)">
+              <circle cx="0" cy="-12" r="7" fill="#fff" />
+              <circle cx="8" cy="-8" r="7" fill="#fff" />
+              <circle cx="10" cy="1" r="7" fill="#fff" />
+              <circle cx="3" cy="9" r="7" fill="#fff" />
+              <circle cx="-6" cy="7" r="7" fill="#fff" />
+              <circle cx="-10" cy="-2" r="7" fill="#fff" />
+              <circle cx="0" cy="0" r="5" fill="#f5c842" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Floral — Bottom Right -->
+        <div class="floral floral-br" aria-hidden="true">
+          <svg width="110" height="100" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Decorative floral element">
+            <ellipse cx="55" cy="30" rx="24" ry="8" fill="#2d6644" transform="rotate(20 55 30)" />
+            <ellipse cx="25" cy="50" rx="20" ry="7" fill="#1e4a30" transform="rotate(-15 25 50)" />
+            <g transform="translate(30,55)">
+              <circle cx="0" cy="-14" r="9" fill="#f0ede6" />
+              <circle cx="10" cy="-9" r="9" fill="#f0ede6" />
+              <circle cx="13" cy="1" r="9" fill="#f0ede6" />
+              <circle cx="5" cy="10" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="8" r="9" fill="#f0ede6" />
+              <circle cx="-12" cy="-2" r="9" fill="#f0ede6" />
+              <circle cx="-7" cy="-12" r="9" fill="#f0ede6" />
+              <circle cx="0" cy="0" r="7" fill="#f5dfa0" />
+            </g>
+            <g transform="translate(70,45) scale(.6)">
+              <circle cx="0" cy="-12" r="7" fill="#fff" />
+              <circle cx="8" cy="-8" r="7" fill="#fff" />
+              <circle cx="10" cy="1" r="7" fill="#fff" />
+              <circle cx="3" cy="9" r="7" fill="#fff" />
+              <circle cx="-6" cy="7" r="7" fill="#fff" />
+              <circle cx="-10" cy="-2" r="7" fill="#fff" />
+              <circle cx="0" cy="0" r="5" fill="#f5c842" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- ====================================================
+           CARD CONTENT
+           ==================================================== -->
+        <div class="card-content">
+
+          <!-- Eyebrow -->
+          <p class="eyebrow" id="invitation-eyebrow">You are invited</p>
+
+          <!-- Main title -->
+          <h1 class="script-title" id="invitation-title">Party Invitation</h1>
+
+          <!-- Divider -->
+          <div class="divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-diamond"></div>
+            <div class="divider-line"></div>
+          </div>
+
+          <!-- Date & Time -->
+          <div class="date-block" id="date-block">
+            <div class="date-main" aria-label="11th May 2026">
+              11<sup>th</sup> May, 2026
+            </div>
+            <div class="date-sub" aria-label="Monday">Monday</div>
+            <div class="time-pill" aria-label="Approximately 6 PM onwards, tentative">
+              <svg style="width:11px;height:11px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              ~6:00 PM Onwards
+              <span class="tentative-badge">Tentative</span>
+            </div>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="countdown-wrap reveal" role="timer" aria-live="polite" aria-label="Countdown to the event">
+            <p class="countdown-label">Counting down to the celebration</p>
+            <div class="countdown">
+              <div class="cd-unit">
+                <div class="cd-number" id="cd-d" aria-label="Days">00</div>
+                <div class="cd-lbl">Days</div>
+              </div>
+              <div class="cd-sep" aria-hidden="true">:</div>
+              <div class="cd-unit">
+                <div class="cd-number" id="cd-h" aria-label="Hours">00</div>
+                <div class="cd-lbl">Hours</div>
+              </div>
+              <div class="cd-sep" aria-hidden="true">:</div>
+              <div class="cd-unit">
+                <div class="cd-number" id="cd-m" aria-label="Minutes">00</div>
+                <div class="cd-lbl">Mins</div>
+              </div>
+              <div class="cd-sep" aria-hidden="true">:</div>
+              <div class="cd-unit">
+                <div class="cd-number" id="cd-s" aria-label="Seconds">00</div>
+                <div class="cd-lbl">Secs</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Venue -->
+          <div class="venue-block reveal">
+            <p class="venue-label">Venue</p>
+            <p class="venue-name" id="venue-name">Mad Over Grills</p>
+            <address class="venue-address" aria-label="Venue address">
+              Green City Road, Opp Bharti Royal Residency<br />
+              Near Indian Petrol Pump, Galaxy Circle<br />
+              Adajan, Pal Gam, Surat<br />
+              Gujarat &mdash; 394510
+            </address>
+
+            <!-- Embedded Map -->
+            <div class="map-embed-wrap" aria-label="Map showing venue location">
+              <div class="map-embed-glow" aria-hidden="true"></div>
+              <iframe id="venue-map" class="map-embed"
+                src="https://www.google.com/maps?q=Mad+Over+Grills+Green+City+Road+Adajan+Surat+Gujarat+394510&output=embed&z=16"
+                title="Mad Over Grills location on Google Maps" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                aria-label="Interactive map of Mad Over Grills, Adajan, Surat"></iframe>
+            </div>
+
+            <a id="map-link" class="map-btn" href="https://maps.app.goo.gl/KMwwz717xj8xp6GN6" target="_blank"
+              rel="noopener noreferrer" aria-label="Open Mad Over Grills location in Google Maps">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Open in Google Maps
+            </a>
+          </div>
+
+        </div><!-- /.card-content -->
+      </div><!-- /.arch-frame -->
+
+      <p class="footer-note" aria-label="Closing note">We look forward to celebrating with you 🌿</p>
+
+    </div><!-- /.card -->
+  </main>
+
+  <!-- ====================================================
+       FOOTER
+       ==================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <span class="site-footer__divider" aria-hidden="true">✦</span>
+      <p class="site-footer__text">
+        Made with <span class="site-footer__heart" aria-label="love">❤️</span> by
+        <strong class="site-footer__name">Lucky</strong>
+        &nbsp;&mdash;&nbsp; &copy; 2026 All Rights Reserved
+      </p>
+      <span class="site-footer__divider" aria-hidden="true">✦</span>
+    </div>
+  </footer>
+
+  <!-- Skip link (accessibility) -->
+  <a href="#main-content" class="sr-only"
+    style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+    Skip to main content
+  </a>
+
+  <!-- ====================================================
+     JAVASCRIPT (deferred for performance)
+     ==================================================== -->
+  <script src="script.js" defer></script>
+
+  <!-- Built with ❤️ by Lucky | © 2026 -->
+
+</body>
+
+</html>
