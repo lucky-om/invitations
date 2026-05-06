@@ -21,14 +21,17 @@
   'use strict';
 
   /* -------------------------------------------------- */
-  /* 1. FLOATING PARTICLES                              */
+  /* 1. FLOATING PARTICLES + TWINKLING STARS            */
   /* -------------------------------------------------- */
   function initParticles() {
     const container = document.getElementById('particles');
     if (!container) return;
 
-    const total = window.innerWidth < 480 ? 16 : 28;
+    const isMobile = window.innerWidth < 480;
+    const total = isMobile ? 18 : 32;
+    const twinkleCount = isMobile ? 10 : 20;
 
+    // Floating gold/star particles
     for (let i = 0; i < total; i++) {
       const p = document.createElement('div');
       const isStar = Math.random() > .72;
@@ -41,7 +44,7 @@
       const dur = Math.random() * 16 + 10;
       const delay = Math.random() * 14;
       const left = Math.random() * 100;
-      const bright = Math.random() * 30 + 70;       // slight color variation
+      const bright = Math.random() * 30 + 70;
 
       p.style.cssText = [
         `width:${size}px`,
@@ -54,6 +57,24 @@
       ].join(';');
 
       container.appendChild(p);
+    }
+
+    // Twinkling static stars
+    for (let i = 0; i < twinkleCount; i++) {
+      const t = document.createElement('div');
+      t.className = 'particle twinkle';
+      const size = Math.random() * 2.5 + 1;
+      const dur = Math.random() * 3 + 1.5;
+      const delay = Math.random() * 5;
+      t.style.cssText = [
+        `width:${size}px`,
+        `height:${size}px`,
+        `left:${Math.random() * 100}%`,
+        `top:${Math.random() * 100}%`,
+        `animation-duration:${dur}s`,
+        `animation-delay:${delay}s`,
+      ].join(';');
+      container.appendChild(t);
     }
   }
 
@@ -227,7 +248,53 @@
   }
 
   /* -------------------------------------------------- */
-  /* 6. RESIZE: re-init particles on orientation change */
+  /* 6. SPARKLE BURST ON CARD TAP (mobile delight)      */
+  /* -------------------------------------------------- */
+  function initCardSparkle() {
+    const card = document.querySelector('.arch-frame');
+    if (!card) return;
+
+    card.addEventListener('click', function(e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      createSparkles(card, x, y);
+    });
+  }
+
+  function createSparkles(parent, cx, cy) {
+    const EMOJIS = ['✨','⭐','🌟','💫','🎊'];
+    for (let i = 0; i < 7; i++) {
+      const s = document.createElement('span');
+      s.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      const angle = (i / 7) * Math.PI * 2;
+      const dist = 40 + Math.random() * 30;
+      const dx = Math.cos(angle) * dist;
+      const dy = Math.sin(angle) * dist;
+      Object.assign(s.style, {
+        position: 'absolute',
+        left: cx + 'px',
+        top: cy + 'px',
+        fontSize: (Math.random() * 10 + 10) + 'px',
+        pointerEvents: 'none',
+        zIndex: '10',
+        transition: 'transform .6s ease-out, opacity .6s ease-out',
+        transform: 'translate(-50%,-50%)',
+        opacity: '1',
+        lineHeight: '1',
+      });
+      parent.appendChild(s);
+      // Trigger animation next frame
+      requestAnimationFrame(() => {
+        s.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0)`;
+        s.style.opacity = '0';
+      });
+      setTimeout(() => s.remove(), 650);
+    }
+  }
+
+  /* -------------------------------------------------- */
+  /* 7. RESIZE: re-init particles on orientation change */
   /* -------------------------------------------------- */
   let resizeTimer;
   window.addEventListener('resize', () => {
@@ -255,6 +322,9 @@
     initCountdown();
     initRSVP();
     initScrollReveal();
+    initCardSparkle();
+    // Fire a small confetti burst on load after a short delay
+    setTimeout(() => launchConfetti(), 1200);
   });
 
 })();
