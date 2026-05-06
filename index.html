@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>invite.luckyverse.tech — Lucky's Invitation Hub</title>
+  <meta name="description" content="Official invitation hub for Lucky's events and celebrations. Find all active invitations here." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Lucky" />
+  <meta name="theme-color" content="#050d1a" />
+  <link rel="canonical" href="https://invite.luckyverse.tech/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #050d1a;
+      --bg-card:    #0a1628;
+      --bg-card2:   #0d1e35;
+      --border:     rgba(0, 212, 255, .16);
+      --cyan:       #00d4ff;
+      --cyan-dim:   rgba(0, 212, 255, .1);
+      --cyan-glow:  rgba(0, 212, 255, .3);
+      --purple:     #7c3aed;
+      --white:      #f0f6ff;
+      --muted:      rgba(240, 246, 255, .5);
+      --ease:       cubic-bezier(.16, 1, .3, 1);
+    }
+
+    html, body {
+      min-height: 100%;
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100svh;
+    }
+
+    /* Background */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 45% at 10% 15%, rgba(124, 58, 237, .15) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 55% at 90% 80%, rgba(0, 212, 255, .1) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 70% at 50% 50%, #070f1e 30%, #020810 100%);
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, .03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* ---- HEADER ---- */
+    header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: fadeDown .8s var(--ease) both;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: dotPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 0 0 var(--cyan-glow); }
+      50%       { box-shadow: 0 0 0 6px rgba(0, 212, 255, 0); }
+    }
+
+    .logo-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--cyan);
+      letter-spacing: .06em;
+    }
+
+    .logo-text span { color: rgba(240, 246, 255, .5); }
+
+    .header-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      color: var(--muted);
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 5px 12px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .3em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp .7s .2s var(--ease) forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 7vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp .7s .34s var(--ease) forwards;
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp .7s .46s var(--ease) forwards;
+    }
+
+    /* ---- INVITE CARDS GRID ---- */
+    .invites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeUp .7s .58s var(--ease) forwards;
+    }
+
+    .invite-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 28px 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s var(--ease), border-color .28s, box-shadow .28s;
+    }
+
+    .invite-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s var(--ease);
+    }
+
+    .invite-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 212, 255, .35);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, .5), 0 0 0 1px rgba(0, 212, 255, .1);
+    }
+
+    .invite-card:hover::before { transform: scaleX(1); }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+
+    .tag-live   { color: #4ade80; border-color: rgba(74, 222, 128, .3); background: rgba(74, 222, 128, .07); }
+    .tag-coming { color: var(--cyan); border-color: rgba(0, 212, 255, .3); background: var(--cyan-dim); }
+
+    .card-arrow {
+      color: var(--muted);
+      font-size: 18px;
+      transition: color .2s, transform .2s;
+    }
+    .invite-card:hover .card-arrow {
+      color: var(--cyan);
+      transform: translateX(4px);
+    }
+
+    .card-event {
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      color: var(--cyan);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .card-detail {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-detail span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-detail span::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--cyan);
+      opacity: .6;
+      flex-shrink: 0;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 24px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      letter-spacing: .16em;
+      color: rgba(240, 246, 255, .2);
+      text-transform: uppercase;
+    }
+
+    footer strong { color: rgba(0, 212, 255, .45); font-weight: 400; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; }
+      .header-badge { display: none; }
+      .hero  { padding: 60px 20px 48px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="/" aria-label="invite.luckyverse.tech home">
+    <div class="logo-dot" aria-hidden="true"></div>
+    <span class="logo-text">invite<span>.luckyverse.tech</span></span>
+  </a>
+  <div class="header-badge" aria-label="Made by Lucky">by Lucky</div>
+</header>
+
+<!-- HERO -->
+<main class="hero" id="main-content">
+  <p class="hero-tag">invitation hub</p>
+  <h1 class="hero-title">
+    Lucky's<br /><span class="grad">Celebrations &amp; Events</span>
+  </h1>
+  <p class="hero-sub">
+    All active invitations are listed below.<br />
+    Pick yours and celebrate with us.
+  </p>
+
+  <!-- INVITE CARDS -->
+  <div class="invites-grid" role="list">
+
+    <!-- Inferno 26 Party -->
+    <a class="invite-card" href="/inferno26-party/" role="listitem" aria-label="Inferno 26 Birthday Party invitation">
+      <div class="card-meta">
+        <span class="card-tag tag-live">🟢 &nbsp;Active</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </div>
+      <span class="card-event">Inferno 26 · SDJ College</span>
+      <div class="card-title">Lucky's Birthday Party 🎂</div>
+      <div class="card-detail">
+        <span>11th May 2026 &mdash; Monday</span>
+        <span>~6:00 PM Onwards</span>
+        <span>Mad Over Grills, Adajan, Surat</span>
+      </div>
+    </a>
+
+    <!-- Placeholder — future events -->
+    <div class="invite-card" role="listitem" aria-label="More events coming soon" style="pointer-events:none;opacity:.5;">
+      <div class="card-meta">
+        <span class="card-tag tag-coming">⏳ &nbsp;Coming Soon</span>
+      </div>
+      <span class="card-event">Future Event</span>
+      <div class="card-title">Stay Tuned&hellip;</div>
+      <div class="card-detail">
+        <span>More celebrations on the way</span>
+        <span>Check back soon</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  Made with <span aria-label="love">❤️</span> by <strong>Lucky</strong> &mdash; &copy; 2026 All Rights Reserved
+</footer>
+
+</body>
+</html>
