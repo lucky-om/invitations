@@ -254,7 +254,7 @@
     const card = document.querySelector('.arch-frame');
     if (!card) return;
 
-    card.addEventListener('click', function(e) {
+    card.addEventListener('click', function (e) {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -263,7 +263,7 @@
   }
 
   function createSparkles(parent, cx, cy) {
-    const EMOJIS = ['✨','⭐','🌟','💫','🎊'];
+    const EMOJIS = ['✨', '⭐', '🌟', '💫', '🎊'];
     for (let i = 0; i < 7; i++) {
       const s = document.createElement('span');
       s.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
@@ -318,13 +318,11 @@
   /* INIT ALL                                           */
   /* -------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    initParticles();
     initCountdown();
     initRSVP();
     initScrollReveal();
     initCardSparkle();
-    // Fire a small confetti burst on load after a short delay
-    setTimeout(() => launchConfetti(), 1200);
+    // setTimeout(() => launchConfetti(), 1200); // Disabled for performance
   });
 
 })();
