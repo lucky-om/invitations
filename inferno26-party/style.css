@@ -77,17 +77,6 @@ body::before {
     radial-gradient(ellipse 80% 60% at 20% 10%, rgba(200, 169, 110, .18) 0%, transparent 60%),
     radial-gradient(ellipse 60% 80% at 85% 90%, rgba(61, 102, 81, .45) 0%, transparent 60%),
     radial-gradient(ellipse 100% 100% at 50% 50%, #142b22 0%, var(--deep-alt) 100%);
-  animation: bgPulse 10s ease-in-out infinite alternate;
-}
-
-@keyframes bgPulse {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: .72;
-  }
 }
 
 
@@ -237,19 +226,6 @@ body::before {
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   border-radius: 0 0 4px 4px;
-  animation: glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-
-  0%,
-  100% {
-    opacity: .4;
-  }
-
-  50% {
-    opacity: 1;
-  }
 }
 
 /* -------- Shimmer -------- */
@@ -365,19 +341,6 @@ body::before {
   background: var(--gold);
   transform: rotate(45deg);
   flex-shrink: 0;
-  animation: diamondPulse 2.5s ease-in-out infinite;
-}
-
-@keyframes diamondPulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(200, 169, 110, 0);
-  }
-
-  50% {
-    box-shadow: 0 0 0 6px rgba(200, 169, 110, .22);
-  }
 }
 
 /* -------- Date Block -------- */
@@ -428,19 +391,6 @@ body::before {
   background: rgba(200, 169, 110, .08);
   position: relative;
   overflow: hidden;
-  animation: pillGlow 3.2s ease-in-out infinite;
-}
-
-@keyframes pillGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(200, 169, 110, 0);
-  }
-
-  50% {
-    box-shadow: 0 0 18px 4px rgba(200, 169, 110, .22);
-  }
 }
 
 .time-pill::after {
@@ -452,18 +402,6 @@ body::before {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .13), transparent);
   transform: translate3d(-200%, 0, 0);
-  animation: pillShine 3.8s ease-in-out infinite 1.5s;
-}
-
-@keyframes pillShine {
-  0% {
-    transform: translate3d(-200%, 0, 0);
-  }
-
-  40%,
-  100% {
-    transform: translate3d(300%, 0, 0);
-  }
 }
 
 .tentative-badge {
@@ -476,19 +414,6 @@ body::before {
   border-radius: 20px;
   font-weight: 600;
   text-transform: uppercase;
-  animation: badgeBlink 2.5s ease-in-out infinite;
-}
-
-@keyframes badgeBlink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .6;
-  }
 }
 
 /* ====================================================
@@ -572,19 +497,6 @@ body::before {
   color: var(--gold-dim);
   line-height: 1;
   padding-top: 6px;
-  animation: sepBlink 1s step-end infinite;
-}
-
-@keyframes sepBlink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
 }
 
 .cd-lbl {
@@ -666,19 +578,6 @@ body::before {
   background:
     linear-gradient(rgba(200, 169, 110, 0), rgba(200, 169, 110, 0)) padding-box,
     linear-gradient(135deg, rgba(200, 169, 110, .4), transparent 50%, rgba(200, 169, 110, .2)) border-box;
-  animation: mapGlow 4s ease-in-out infinite;
-}
-
-@keyframes mapGlow {
-
-  0%,
-  100% {
-    opacity: .6;
-  }
-
-  50% {
-    opacity: 1;
-  }
 }
 
 /* Top-edge gold line (matches arch-frame style) */
@@ -693,7 +592,6 @@ body::before {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   z-index: 3;
   border-radius: 0 0 4px 4px;
-  animation: glowPulse 3s ease-in-out infinite;
 }
 
 .map-embed {
