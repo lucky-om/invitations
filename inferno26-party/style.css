@@ -1,6 +1,5 @@
 /* =====================================================
    PARTY INVITATION — style.css
-   Mobile-first, GPU-accelerated, no layout thrash
    ===================================================== */
 
 /* =====================================================
@@ -254,11 +253,18 @@ svg {
   -webkit-user-drag: none;
 }
 
+.map-iframe,
+.map-wrap,
+.map-wrap * {
+  pointer-events: auto !important;
+  touch-action: auto !important;
+}
+
 address {
   font-style: normal;
 }
 
-p, h1, address, span, .cd-num, .cd-lbl, .date-main, .date-sub, .time-pill, .map-btn, .footer-note, .site-footer__text {
+p, h1, address, .cd-num, .cd-lbl, .date-main, .date-sub, .time-pill, .map-btn, .footer-note, .site-footer__text {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
