@@ -3,7 +3,6 @@
 
   /* ─────────────────────────────────────────────────
      SPLASH + MUSIC
-     The splash tap is the user gesture — music always plays.
   ───────────────────────────────────────────────── */
   function initSplash() {
     var splash = document.getElementById('splash');
@@ -37,7 +36,7 @@
         }, { once: true });
       }, 160);
 
-      // Play music — GUARANTEED because this IS a user gesture
+      // Play music 
       if (audio) {
         audio.volume = 0.42;
         audio.play().catch(function(){});
