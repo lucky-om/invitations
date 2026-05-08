@@ -249,31 +249,50 @@ img,
 svg {
   display: block;
   max-width: 100%;
-  pointer-events: none;
   -webkit-user-drag: none;
-}
-
-.map-iframe,
-.map-wrap,
-.map-wrap * {
-  pointer-events: auto !important;
-  touch-action: auto !important;
+  pointer-events: none;
 }
 
 address {
   font-style: normal;
 }
 
-p, h1, address, .cd-num, .cd-lbl, .date-main, .date-sub, .time-pill, .map-btn, .footer-note, .site-footer__text {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-
 button {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+/* ── Security: text protection ── */
+/* Applied to named classes only — map iframe is unaffected (cross-origin) */
+.splash,
+.splash-body,
+.splash-heading,
+.splash-sub,
+.splash-eyebrow,
+.splash-cta,
+.arch-frame,
+.eyebrow,
+.script-title,
+.divider,
+.date-block,
+.date-main,
+.date-sub,
+.time-pill,
+.section-label,
+.venue-name,
+.venue-address,
+.countdown-wrap,
+.cd-num,
+.cd-lbl,
+.cd-sep,
+.footer-note,
+.site-footer,
+.site-footer__text,
+.gold-name {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* ---- Tokens ---- */
@@ -859,10 +878,9 @@ body::before {
 .map-iframe {
   display: block;
   width: 100%;
-  height: 195px;
+  height: 220px;
   border: none;
-  pointer-events: auto !important;
-  touch-action: auto !important;
+  z-index: 0;
 }
 
 /* Map button */
