@@ -72,6 +72,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 0;
+  will-change: opacity;
   background:
     radial-gradient(ellipse 80% 60% at 20% 10%, rgba(200, 169, 110, .18) 0%, transparent 60%),
     radial-gradient(ellipse 60% 80% at 85% 90%, rgba(61, 102, 81, .45) 0%, transparent 60%),
@@ -117,6 +118,7 @@ body::after {
   background: var(--gold);
   opacity: 0;
   animation: floatUp linear infinite;
+  will-change: transform, opacity;
 }
 
 .particle.star-shape {
@@ -240,42 +242,37 @@ body::after {
 }
 
 @keyframes glowPulse {
-
   0%,
   100% {
-    opacity: .6;
-    filter: blur(0px);
+    opacity: .4;
   }
-
   50% {
     opacity: 1;
-    filter: blur(1.5px);
   }
 }
 
 /* -------- Shimmer -------- */
 .shimmer {
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
   pointer-events: none;
   z-index: 0;
   background: linear-gradient(135deg, transparent 30%, rgba(200, 169, 110, .07) 50%, transparent 70%);
-  background-size: 200% 200%;
   animation: shimmerMove 5s ease-in-out infinite;
 }
 
 @keyframes shimmerMove {
   0% {
-    background-position: 200% 200%;
+    transform: translate3d(30%, 30%, 0);
   }
-
   50% {
-    background-position: 0% 0%;
+    transform: translate3d(-30%, -30%, 0);
   }
-
   100% {
-    background-position: 200% 200%;
+    transform: translate3d(30%, 30%, 0);
   }
 }
 
@@ -287,9 +284,9 @@ body::after {
   font-size: 0;
   line-height: 0;
   pointer-events: none;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .5));
   z-index: 2;
   transition: transform .3s;
+  will-change: transform;
 }
 
 .floral-tl {
@@ -371,14 +368,9 @@ body::after {
     0 2px 28px rgba(200, 169, 110, .35),
     0 0 70px rgba(200, 169, 110, .15);
   opacity: 0;
-  animation: fadeUp .7s .45s var(--ease-out-expo) forwards, titleGlow 4s 1.2s ease-in-out infinite;
+  animation: fadeUp .7s .45s var(--ease-out-expo) forwards;
   position: relative;
   display: inline-block;
-}
-
-@keyframes titleGlow {
-  0%, 100% { text-shadow: 0 2px 28px rgba(200,169,110,.35), 0 0 70px rgba(200,169,110,.15); }
-  50%       { text-shadow: 0 2px 40px rgba(200,169,110,.65), 0 0 100px rgba(200,169,110,.35); }
 }
 
 /* -------- Divider -------- */
@@ -493,21 +485,21 @@ body::after {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 55%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .13), transparent);
+  transform: translate3d(-200%, 0, 0);
   animation: pillShine 3.8s ease-in-out infinite 1.5s;
 }
 
 @keyframes pillShine {
   0% {
-    left: -100%;
+    transform: translate3d(-200%, 0, 0);
   }
-
   40%,
   100% {
-    left: 160%;
+    transform: translate3d(300%, 0, 0);
   }
 }
 
